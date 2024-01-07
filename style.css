@@ -1,0 +1,271 @@
+:root {
+  --clr-primary-100: hsl(221, 100%, 96%);
+  --clr-primary-200: hsl(241, 100%, 89%);
+  --clr-primary-400: hsl(234, 85%, 45%);
+  --clr-primary-450: hsl(241, 81%, 54%);
+  --clr-primary-500: hsl(224, 30%, 27%);
+
+  --clr-red-100: hsla(0, 100%, 67%, 0.3);
+  --clr-red-400: hsl(0, 100%, 67%);
+  --clr-yellow-100: hsla(39, 100%, 56%, 0.3);
+  --clr-yellow-400: hsl(39, 100%, 56%);
+  --clr-green-100: hsla(166, 100%, 37%, 0.3);
+  --clr-green-400: hsl(166, 100%, 37%);
+  --clr-purple-400: hsl(252, 100%, 67%);
+  --clr-purple-500: hsla(241, 72%, 46%, 0);
+
+  --clr-neutral-100: hsl(0, 0%, 100%);
+  --clr-neutral-300: hsla(0, 0%, 100%, 0.5);
+  --clr-neutral-500: hsla(0, 0%, 17%, 0.5);
+
+  --ff-primary: "Hanken Grotesk", sans-serif;
+
+  --fw-regular: 500;
+  --fw-semibold: 700;
+  --fw-bold: 800;
+
+  --fs-regular: 1rem;
+  --fs-subheadings: 1.125rem;
+  --fs-headings: 1.5rem;
+  --fs-xxl: 2.5rem;
+}
+
+/* Box sizing rules */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove default margin */
+* {
+  margin: 0;
+  padding: 0;
+  font: inherit;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role="list"],
+ol[role="list"] {
+  list-style: none;
+}
+
+/* Set core root defaults */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+/* Set core body defaults */
+body {
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img,
+picture,
+svg {
+  max-width: 100%;
+  display: block;
+}
+
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* General Styling */
+
+body {
+  font-family: var(--ff-primary);
+  font-size: var(--fs-regular);
+  font-weight: var(--fw-regular);
+  display: flex;
+  justify-content: center;
+  align-items: start;
+}
+
+main {
+  max-width: 375px;
+  border-radius: 25px;
+  box-shadow: 5px 5px 20px var(--clr-neutral-500);
+}
+
+h1 {
+  font-size: var(--fs-subheadings);
+  font-weight: var(--fw-semibold);
+}
+
+.container {
+  width: 90%;
+  margin: 0 auto;
+  min-height: 100%;
+  padding: 1em 0;
+}
+
+.result-chart {
+  background-image: linear-gradient(
+    var(--clr-purple-400),
+    var(--clr-primary-450)
+  );
+  color: var(--clr-neutral-300);
+  text-align: center;
+  border-radius: 25px;
+  padding: 0;
+}
+
+.result-score {
+  background-image: linear-gradient(
+    var(--clr-primary-450),
+    var(--clr-purple-500)
+  );
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 7.5rem;
+  height: 7.5rem;
+  margin: 0 auto;
+  border-radius: 50%;
+}
+
+.result-chart h1,
+.result-status h2 {
+  font-weight: var(--fw-semibold);
+}
+
+.result-chart h1,
+.result-score {
+  margin-bottom: 1.5em;
+}
+
+.result-status h2 {
+  font-size: var(--fs-headings);
+  color: var(--clr-neutral-100);
+}
+
+p.result-points {
+  font-size: var(--fs-xxl);
+  color: var(--clr-neutral-100);
+  font-weight: var(--fw-bold);
+}
+
+.result-summary > .container > h1 {
+  margin-bottom: 1em;
+  color: var(--clr-primary-500);
+  font-weight: var(--fw-bold);
+}
+
+.summary-list-item {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1.5em;
+  padding: 0.75em 1em;
+  border-radius: 15px;
+  font-weight: var(--fw-semibold);
+  color: var(--clr-neutral-500);
+
+  & .list-item-title {
+    display: flex;
+    gap: 0.5em;
+  }
+}
+
+.list-item-score stronge {
+  color: var(--clr-primary-500);
+}
+
+.summary-list-item:nth-child(1) {
+  background-color: var(--clr-red-100);
+
+  & .list-item-title {
+    color: var(--clr-red-400);
+  }
+}
+
+.summary-list-item:nth-child(2) {
+  background-color: var(--clr-yellow-100);
+
+  & .list-item-title {
+    color: var(--clr-yellow-400);
+  }
+}
+.summary-list-item:nth-child(3) {
+  background-color: var(--clr-green-100);
+
+  & .list-item-title {
+    color: var(--clr-green-400);
+  }
+}
+.summary-list-item:nth-child(4) {
+  background-color: var(--clr-primary-200);
+
+  & .list-item-title {
+    color: var(--clr-primary-400);
+  }
+}
+
+.summary-btn {
+  width: 100%;
+  border-radius: 50px;
+  border: none;
+  background-color: var(--clr-primary-500);
+  color: var(--clr-neutral-100);
+  padding: 1em 0.5em;
+  margin-bottom: 1em;
+  transition: all 5s;
+  cursor: pointer;
+}
+
+.summary-btn:hover {
+  background-image: linear-gradient(
+    var(--clr-purple-400),
+    var(--clr-primary-450)
+  );
+}
+
+@media (min-width: 40em) {
+  body {
+    align-items: center;
+  }
+  main {
+    width: 70%;
+    max-width: 700px;
+    display: flex;
+  }
+
+  section {
+    width: 100%;
+  }
+
+  .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .result-score {
+    scale: 1.5;
+  }
+}
